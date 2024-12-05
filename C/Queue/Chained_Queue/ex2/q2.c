@@ -15,6 +15,8 @@ int main(){
 
      removeLast(head);
      removeLast(head);
+
+ 
      printf("\nQueue cleared: ");
      printValuesInQueue(head); 
 

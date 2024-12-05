@@ -43,6 +43,11 @@ void appendQueueWithHead(int value, No *head){
 void removeLast(No *head){
     No *prev ;
 
+    if(head->next == NULL){
+        removeFirst(head);
+        return;
+    }
+
     while (head->next != NULL){
         prev = head;
         head = head->next;
@@ -98,6 +103,6 @@ No *removeFirst(No* head){
         head->value = head->next->value;
         head->next = head->next->next;
 
-        // head = head->next;
+        // head = head->next; FUNNY PART IS THAT THIS DOES NOT WORK
     }
 }
