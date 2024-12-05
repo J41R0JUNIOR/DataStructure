@@ -3,8 +3,13 @@ typedef struct Node {
     int value;
 } No;
 
+void printValuesInQueue(No *head);
+
 No *initQueue(int value);  
+
 No *appendQueue(int value, No *head);
 void appendQueueWithHead(int value, No *head);
-void printValuesInQueue(No *head);
- No *removeLast(No *head);
+void addAt(No *head, int i, int value);
+
+
+void removeLast(No *head);

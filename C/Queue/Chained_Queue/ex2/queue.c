@@ -40,8 +40,8 @@ void appendQueueWithHead(int value, No *head){
     head->next = newNode;
 }
 
-No *removeLast(No *head){
-    No *prev = malloc(sizeof(No *));
+void removeLast(No *head){
+    No *prev ;
 
     while (head->next != NULL){
         prev = head;
@@ -49,4 +49,23 @@ No *removeLast(No *head){
     }
 
     prev->next = NULL;
+      free(head);
+}
+
+void addAt(No *head, int i, int value){
+    No *prev, *newNode = malloc(sizeof(No *));
+
+    for(int inc = 1; inc < i; inc++){
+        if(head == NULL){
+            printf("\nIncorrect value, maybe the i is to long for the queue");
+            return;
+        }
+        prev = head;
+        head = head->next;
+    }
+
+    newNode->next = prev->next;
+    newNode->value = value;
+
+    prev->next = newNode;
 }
