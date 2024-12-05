@@ -31,7 +31,7 @@ int main(){
      printValuesInQueue(head);
 
      printf("\nremoving at specific position: ");
-     removeAt(head,7);
+     removeAt(head,1);
      printValuesInQueue(head);
 
      return 0;

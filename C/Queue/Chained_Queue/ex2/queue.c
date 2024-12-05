@@ -74,6 +74,11 @@ void addAt(No *head, int i, int value){
 void removeAt(No *head, int i){
     No *prev;
 
+    if(i == 1){
+        removeFirst(head);
+        return;
+    }
+
    for(int inc = 1; inc < i; inc++){
         if(head->next == NULL){
             printf("Incorrect value, maybe the i is to long for the queue \n");
@@ -86,4 +91,13 @@ void removeAt(No *head, int i){
 
     prev->next = head->next;
     free(head);
+}
+
+No *removeFirst(No* head){
+    if(head->next != NULL){
+        head->value = head->next->value;
+        head->next = head->next->next;
+
+        // head = head->next;
+    }
 }
