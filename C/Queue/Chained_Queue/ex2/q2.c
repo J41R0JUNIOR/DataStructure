@@ -12,11 +12,8 @@ int main(){
      printf("\nAppend the way Maias used to do: ");
      printValuesInQueue(head); 
 
-
      removeLast(head);
      removeLast(head);
-
- 
      printf("\nQueue cleared: ");
      printValuesInQueue(head); 
 
