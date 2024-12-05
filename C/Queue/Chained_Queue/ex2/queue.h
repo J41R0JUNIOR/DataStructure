@@ -7,3 +7,4 @@ No *initQueue(int value);
 No *appendQueue(int value, No *head);
 void appendQueueWithHead(int value, No *head);
 void printValuesInQueue(No *head);
+ No *removeLast(No *head);

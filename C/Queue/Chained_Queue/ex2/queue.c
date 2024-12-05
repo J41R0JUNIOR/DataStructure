@@ -15,12 +15,12 @@ void printValuesInQueue(No *head){
         printf("%d ", head->value);
         printValuesInQueue(head->next);
     }
+    return;
 }
 
 No *appendQueue(int value, No *head){
-
     No *newNode = malloc(sizeof(No));
-    newNode->value = value;
+    newNode->value = value; 
     newNode->next = NULL;
     
     head->next = newNode;
@@ -29,13 +29,24 @@ No *appendQueue(int value, No *head){
 } 
 
 void appendQueueWithHead(int value, No *head){
-    if(head != NULL){
-       head = head->next;
+    while(head->next != NULL){
+        head = head->next;
     }
 
-    No *newNode = malloc(sizeof(No*));
-    newNode->value = value;
+    No *newNode = malloc(sizeof(No *));
+    newNode->value = value; 
     newNode->next = NULL;
-
+    
     head->next = newNode;
+}
+
+No *removeLast(No *head){
+    No *prev = malloc(sizeof(No *));
+
+    while (head->next != NULL){
+        prev = head;
+        head = head->next;
+    }
+
+    prev->next = NULL;
 }
