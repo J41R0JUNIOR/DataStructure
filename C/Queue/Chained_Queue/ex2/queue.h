@@ -13,3 +13,4 @@ void addAt(No *head, int i, int value);
 
 
 void removeLast(No *head);
+void removeAt(No *head, int i);

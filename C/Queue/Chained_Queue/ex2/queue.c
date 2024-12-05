@@ -57,9 +57,10 @@ void addAt(No *head, int i, int value){
 
     for(int inc = 1; inc < i; inc++){
         if(head == NULL){
-            printf("\nIncorrect value, maybe the i is to long for the queue");
+            printf("Incorrect value, maybe the i is to long for the queue \n");
             return;
         }
+
         prev = head;
         head = head->next;
     }
@@ -68,4 +69,21 @@ void addAt(No *head, int i, int value){
     newNode->value = value;
 
     prev->next = newNode;
+}
+
+void removeAt(No *head, int i){
+    No *prev;
+
+   for(int inc = 1; inc < i; inc++){
+        if(head->next == NULL){
+            printf("Incorrect value, maybe the i is to long for the queue \n");
+            return;
+        }
+
+        prev = head;
+        head = head->next;
+    }
+
+    prev->next = head->next;
+    free(head);
 }

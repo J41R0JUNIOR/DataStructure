@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include "queue.h"
 
-
-
-
 int main(){
      
      printf("Hello world\n");
@@ -12,7 +9,7 @@ int main(){
      No *n1 = appendQueue(1, head);
      No *n2 = appendQueue(2, n1);
      No *n3 = appendQueue(3, n2);
-     printf("\nUsing what Maias used: ");
+     printf("\nAppend the way Maias used to do: ");
      printValuesInQueue(head); 
 
 
@@ -29,10 +26,13 @@ int main(){
      printf("\nNow append with head: ");
      printValuesInQueue(head); 
 
+     printf("\nadding at specific position: ");
+     addAt(head, 20, 314);
+     printValuesInQueue(head);
 
-     addAt(head, 2, 314);
-     printf("\n adding at specific position: ");
-     printValuesInQueue(head); 
+     printf("\nremoving at specific position: ");
+     removeAt(head,7);
+     printValuesInQueue(head);
 
      return 0;
 } 
