@@ -14,7 +14,5 @@ int main(){
     appendValue(head, 3);
 
     printValues(head);
-
-    printf("Hello World");
     return 0;
 }
