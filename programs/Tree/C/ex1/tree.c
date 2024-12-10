@@ -67,19 +67,3 @@ No *createNode(int value){
     newNode->value = value;
     return newNode;
 }
-
-void deleteNo(No *head, int value){
-    if(head != NULL){
-        if(value > head->value){
-            deleteRightNo(head->right, value, head);
-        }
-
-        if(value < head->value){
-            deleteLeftNo(head->left, value, head);
-        }
-
-        if(value == head->value){
-            deleteHeadNo(head, value);
-        }
-    }
-}
