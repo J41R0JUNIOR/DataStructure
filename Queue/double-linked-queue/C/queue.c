@@ -56,14 +56,12 @@ void dequeue(No **head, No **tail)
 
     if ((*head)->next == NULL)
     {
-        printf("\nDequeued: %d\n", (*head)->value);
         free(*head);
         *head = NULL;
         *tail = NULL;
         return;
     }
     
-        printf("\nDequeued: %d\n", (*head)->value);
         *head = (*head)->next;
         (*head)->prev = NULL;
         free((*head)->prev);
@@ -83,7 +81,21 @@ void dequeueAt(int at, No **head, No **tail)
         return;
     }
 
-    // dequeue logic
+    No* delete = (No*)malloc(sizeof(No));
+    delete = *head;
+    if (delete->prev != NULL) delete->prev->next = delete->next;
+    if (delete->next != NULL) delete->next->prev = delete->prev;
+
+    if (head == tail) {
+        *head = NULL;
+        *tail = NULL;
+    } else if (delete == *head) {
+        *head = delete->next;
+    } else if (delete == *tail) {
+        *tail = delete->prev;
+    }
+
+    free(delete);
 }
 
 void printQueue(No *head)
