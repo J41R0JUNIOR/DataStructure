@@ -34,7 +34,7 @@ void enqueueAt(int value, int at, No **head, No **tail)
         enqueueAt(value, at - 1, &((*head)->next), tail);
         return;
     }
-   
+
     No *node = (No *)malloc(sizeof(No));
     node->value = value;
     node->next = *head;
@@ -42,8 +42,10 @@ void enqueueAt(int value, int at, No **head, No **tail)
     (*head)->prev->next = node;
     (*head)->prev = node;
 
-    if (node->prev == NULL) *head = node;
-    if (node->next == NULL) *tail = node;
+    if (node->prev == NULL)
+        *head = node;
+    if (node->next == NULL)
+        *tail = node;
 }
 
 void dequeue(No **head, No **tail)
@@ -61,11 +63,10 @@ void dequeue(No **head, No **tail)
         *tail = NULL;
         return;
     }
-    
-        *head = (*head)->next;
-        (*head)->prev = NULL;
-        free((*head)->prev);
-    
+
+    *head = (*head)->next;
+    (*head)->prev = NULL;
+    free((*head)->prev);
 }
 
 void dequeueAt(int at, No **head, No **tail)
@@ -81,17 +82,24 @@ void dequeueAt(int at, No **head, No **tail)
         return;
     }
 
-    No* delete = (No*)malloc(sizeof(No));
+    No *delete = (No *)malloc(sizeof(No));
     delete = *head;
-    if (delete->prev != NULL) delete->prev->next = delete->next;
-    if (delete->next != NULL) delete->next->prev = delete->prev;
+    if (delete->prev != NULL)
+        delete->prev->next = delete->next;
+    if (delete->next != NULL)
+        delete->next->prev = delete->prev;
 
-    if (head == tail) {
+    if (head == tail)
+    {
         *head = NULL;
         *tail = NULL;
-    } else if (delete == *head) {
+    }
+    else if (delete == *head)
+    {
         *head = delete->next;
-    } else if (delete == *tail) {
+    }
+    else if (delete == *tail)
+    {
         *tail = delete->prev;
     }
 
