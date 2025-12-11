@@ -45,7 +45,6 @@ void removeValue(No *head, int value, No *parent)
         return;
     }
 
-    // searching for the value to remove
     if (value < head->value)
     {
         removeValue(head->left, value, head);
@@ -62,36 +61,44 @@ void removeValue(No *head, int value, No *parent)
 
 void deleteNode(No *head, No *parent)
 {
-    if (head->left == NULL && head->right == NULL) {
+    if (head->left == NULL && head->right == NULL)
+    {
         parent->left == head ? (parent->left = NULL) : (parent->right = NULL);
         free(head);
     }
-    else if (head->left != NULL & head->right == NULL) {
+    else if (head->left != NULL & head->right == NULL)
+    {
         head->value = head->left->value;
         head->left = head->left->left;
         head->right = head->left->right;
         parent->left == head ? (parent->left = head) : (parent->right = head);
     }
-    else if (head->right != NULL & head->left == NULL) {
+    else if (head->right != NULL & head->left == NULL)
+    {
         head->value = head->right->value;
         head->left = head->right->left;
         head->right = head->right->right;
         parent->left == head ? (parent->left = head) : (parent->right = head);
     }
-    else {
+    else
+    {
         No *successor = head->right;
         No *successorParent = head;
 
-        while (successor->left != NULL) {
+        while (successor->left != NULL)
+        {
             successorParent = successor;
             successor = successor->left;
         }
 
         head->value = successor->value;
 
-        if (successorParent->left == successor) {
+        if (successorParent->left == successor)
+        {
             successorParent->left = successor->right;
-        } else {
+        }
+        else
+        {
             successorParent->right = successor->right;
         }
 
