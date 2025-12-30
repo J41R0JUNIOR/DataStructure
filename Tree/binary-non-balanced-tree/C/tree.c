@@ -70,10 +70,7 @@ void deleteNode(No *head, No *parent)
     {
         No *child = head->left;
 
-        if (parent->left == head)
-            parent->left = child;
-        else
-            parent->right = child;
+        parent->left == head ? (parent->left = child) : (parent->right = child);
 
         free(head);
     }
@@ -81,10 +78,7 @@ void deleteNode(No *head, No *parent)
     {
         No *child = head->right;
 
-        if (parent->left == head)
-            parent->left = child;
-        else
-            parent->right = child;
+        parent->left == head ? (parent->left = child) : (parent->right = child);
 
         free(head);
     }
