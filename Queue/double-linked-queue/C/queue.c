@@ -26,7 +26,7 @@ void enqueueAt(int value, int at, No **head, No **tail)
 {
     if (*head == NULL)
     {
-        printf("\nOut of bounds\n");
+        printf("\nEnqueue At Error:index %d\n out of bounds", at);
         return;
     }
     if (at > 0)
@@ -52,7 +52,7 @@ void dequeue(No **head, No **tail)
 {
     if (*head == NULL)
     {
-        printf("\nQueue is empty\n");
+        printf("\nDequeue Error: Queue is empty\n");
         return;
     }
 
@@ -73,7 +73,7 @@ void dequeueAt(int at, No **head, No **tail)
 {
     if (*head == NULL)
     {
-        printf("\nOut of bounds\n");
+        printf("\nDequeue At Error:index %d\n out of bounds", at);
         return;
     }
     if (at > 0)
