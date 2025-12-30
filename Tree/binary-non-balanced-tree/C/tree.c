@@ -66,19 +66,27 @@ void deleteNode(No *head, No *parent)
         parent->left == head ? (parent->left = NULL) : (parent->right = NULL);
         free(head);
     }
-    else if (head->left != NULL & head->right == NULL)
+    else if (head->left != NULL && head->right == NULL)
     {
-        head->value = head->left->value;
-        head->left = head->left->left;
-        head->right = head->left->right;
-        parent->left == head ? (parent->left = head) : (parent->right = head);
+        No *child = head->left;
+
+        if (parent->left == head)
+            parent->left = child;
+        else
+            parent->right = child;
+
+        free(head);
     }
-    else if (head->right != NULL & head->left == NULL)
+    else if (head->left == NULL && head->right != NULL)
     {
-        head->value = head->right->value;
-        head->left = head->right->left;
-        head->right = head->right->right;
-        parent->left == head ? (parent->left = head) : (parent->right = head);
+        No *child = head->right;
+
+        if (parent->left == head)
+            parent->left = child;
+        else
+            parent->right = child;
+
+        free(head);
     }
     else
     {
